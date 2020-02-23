@@ -1,14 +1,22 @@
 {
-  "name": "svelte-app",
+  "name": "microsoft-edge-extension-lorem-ipsum",
+  "description": "Microsoft Edge (Chromium) lorem ipsum extenstion.",
   "version": "1.0.0",
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
     "start": "sirv public"
   },
+  "keywords": [
+    "svelte",
+    "javascript",
+    "html",
+    "css"
+  ],
   "devDependencies": {
     "@rollup/plugin-commonjs": "^11.0.0",
     "@rollup/plugin-node-resolve": "^7.0.0",
+    "lorem-ipsum": "^2.0.3",
     "rollup": "^1.20.0",
     "rollup-plugin-livereload": "^1.0.0",
     "rollup-plugin-svelte": "^5.0.3",
@@ -17,5 +25,6 @@
   },
   "dependencies": {
     "sirv-cli": "^0.4.4"
-  }
+  },
+  "private": true
 }
