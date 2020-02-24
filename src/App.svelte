@@ -3,9 +3,11 @@
   import { quintOut } from "svelte/easing";
   import { loremIpsum } from "lorem-ipsum";
   import IconCopy from "./components/IconCopy.svelte";
+  import Toast from "./components/Toast.svelte";
 
   let count = 3;
   let units = "sentences";
+  let showToast = false;
 
   $: output = loremIpsum({
     count,
@@ -13,7 +15,13 @@
   });
 
   function handleCopyClick() {
-    navigator.clipboard.writeText(output);
+    navigator.clipboard.writeText(output).then(() => {
+      showToast = true;
+
+      setTimeout(() => {
+        showToast = false;
+      }, 3000);
+    });
   }
 </script>
 
@@ -27,7 +35,9 @@
 </style>
 
 <div class="container-fluid">
-  <main class="mb-4">
+  <Toast message="Text copied to clipboard!" show={showToast} />
+
+  <main class="mb-3">
     <h1 class="mt-3">Lorem Ipsum Generator</h1>
 
     <form>
@@ -52,7 +62,7 @@
           <select
             name="units"
             id="units"
-            class="form-control"
+            class="form-control form-select"
             bind:value={units}
             required>
             <option value="words">Word(s)</option>
