@@ -23,6 +23,10 @@
     transition: opacity 250ms ease-in-out;
   }
 
+  .toast.hide {
+    display: none;
+  }
+
   .toast.show {
     display: block;
     opacity: 1;
@@ -79,7 +83,7 @@
   aria-live="polite"
   aria-atomic="true"
   style="position: relative; z-index: 1;">
-  <div class="toast" class:show style="position: absolute; top: 0; right: 0;">
+  <div class="toast" class:show class:hide={!show} style="position: absolute; top: 0; right: 0;">
     <div class="toast-header">
       <strong class="mr-auto">Lorem Ipsum</strong>
       <button
