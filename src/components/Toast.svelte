@@ -82,7 +82,7 @@
 <div
   aria-live="polite"
   aria-atomic="true"
-  style="position: relative; z-index: 1;">
+  style="position: relative; z-index: 101;">
   <div class="toast" class:show class:hide={!show} style="position: absolute; top: 0; right: 0;">
     <div class="toast-header">
       <strong class="mr-auto">Lorem Ipsum</strong>

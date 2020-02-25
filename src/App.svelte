@@ -14,6 +14,18 @@
     units
   });
 
+  function handleDecrementClick() {
+    if (count > 1) {
+      count -= 1;
+    }
+  }
+
+  function handleIncrementClick() {
+    if (count < 99) {
+      count += 1;
+    }
+  }
+
   function handleCopyClick() {
     navigator.clipboard.writeText(output).then(() => {
       showToast = true;
@@ -42,17 +54,37 @@
 
     <form>
       <div class="form-row">
-        <div class="form-group mb-2 col">
+        <div class="col">
           <label for="count">Count:</label>
-          <input
-            type="number"
-            id="count"
-            name="count"
-            class="form-control"
-            bind:value={count}
-            min="1"
-            max="99"
-            required />
+          <div class="input-group mb-2">
+            <div class="input-group-prepend">
+              <button
+                class="btn btn-primary"
+                type="button"
+                id="decrement"
+                on:click={handleDecrementClick}>
+                -
+              </button>
+            </div>
+            <input
+              type="number"
+              id="count"
+              name="count"
+              class="form-control"
+              bind:value={count}
+              min="1"
+              max="99"
+              required />
+            <div class="input-group-append">
+              <button
+                class="btn btn-primary"
+                type="button"
+                id="increment"
+                on:click={handleIncrementClick}>
+                +
+              </button>
+            </div>
+          </div>
         </div>
       </div>
 
